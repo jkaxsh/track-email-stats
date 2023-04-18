@@ -16,10 +16,6 @@ app = FastAPI()
 PORT = 587
 EMAIL_SERVER = 'imap.gmail.com'
 
-@app.get("/")
-def run_myapp():
-    return "[QUYKKDEV - SMTP] " + read_root()
-
 def statsupdate(result,emails_values,rep):
     month = str(date.today())[5] + str(date.today())[6]
     if rep != 0:
