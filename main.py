@@ -1,5 +1,4 @@
-from datetime import date
-from datetime import datetime
+from datetime import date, datetime
 from fastapi import FastAPI
 from num_replies import replies
 import gspread

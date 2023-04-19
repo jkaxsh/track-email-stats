@@ -14,10 +14,12 @@ username = os.getenv("EC2_USERNAME")
 
 pemkey = os.getenv("SECRET_LOCATION") + "SSHkey.pem"
 
+#if u want to disable your server log cleanup at 9am, comment all the clean()
 def clean():
     key = paramiko.RSAKey.from_private_key_file(pemkey)
     date = datetime.now()
-    if str(date)[11:16] == "09:01" or str(date)[11:16] == "09:00":
+    print(date)
+    if str(date)[11:16] == "08:01" or str(date)[11:16] == "08:00":
         ssh = paramiko.SSHClient()
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         ssh.connect(ip,username=username, pkey=key)
