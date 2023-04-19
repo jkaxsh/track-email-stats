@@ -18,7 +18,6 @@ pemkey = os.getenv("SECRET_LOCATION") + "SSHkey.pem"
 def clean():
     key = paramiko.RSAKey.from_private_key_file(pemkey)
     date = datetime.now()
-    print(date)
     if str(date)[11:16] == "08:01" or str(date)[11:16] == "08:00":
         ssh = paramiko.SSHClient()
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
