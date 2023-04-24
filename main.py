@@ -7,8 +7,10 @@ import os
 from opens import opens
 from opens import clean
 import pytz
+from stats import stats
 
 sheet = os.getenv("SECRET_LOCATION") + "sheetAuth.json"
+#sheet =  "sheetAuth.json"
 
 app = FastAPI()
 
@@ -74,7 +76,7 @@ def update_stats():
     emails_values = emails.get_all_values()
     templates = gc.open("Emails").get_worksheet(1)
     templates_values = templates.get_all_values()
-
+    emails_values = stats(emails_values)
     i = 14
     ret = 0
     openz = 0
@@ -84,7 +86,7 @@ def update_stats():
             continue
         rep = 0
         open = 0
-        if emails_values[i][1] != '' and emails_values[i][4] != 'REPLIED':
+        if emails_values[i][1] != '' and "REPLIED" not in emails_values[i][4]:
             if emails_values[i][4] != '' and emails_values[i][0] != "no":
                 for enum in range(0,4):
                     if (emails_values[i][11+enum] == "" or emails_values[i][11+enum] == "no"):
@@ -108,7 +110,7 @@ def update_stats():
                 ret += rep
                 logout(log)
             if(rep != 0):
-                emails_values[i][4] = 'REPLIED'
+                emails_values[i][4] = str(emails_values[i][4]) + ' REPLIED'
 
         i+=1
     clean()
