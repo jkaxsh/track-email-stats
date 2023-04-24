@@ -80,7 +80,7 @@ def update_stats():
     i = 14
     ret = 0
     openz = 0
-    '''while(i < len(emails_values)):
+    while(i < len(emails_values)):
         if emails_values[i][2] == '':
             i+=1
             continue
@@ -113,7 +113,7 @@ def update_stats():
                 emails_values[i][4] = str(emails_values[i][4]) + ' REPLIED'
 
         i+=1
-    clean()'''
+    clean()
     statsupdate(f'''0 New replies and 0 Emails Sent.''',emails_values,ret)
     update(emails, emails_values)
     return f"{ret}#{openz}"

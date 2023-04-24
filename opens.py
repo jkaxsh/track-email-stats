@@ -12,7 +12,7 @@ ip = os.getenv("EC2_IP_ADDRESS")
 browser_ip = os.getenv("BROWSER_IP_ADDRESS")
 username = os.getenv("EC2_USERNAME")
 
-#pemkey = os.getenv("SECRET_LOCATION") + "SSHkey.pem"
+pemkey = os.getenv("SECRET_LOCATION") + "SSHkey.pem"
 
 #if u want to disable your server log cleanup at 9am, comment all the clean()
 def clean():
