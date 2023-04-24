@@ -9,8 +9,8 @@ from opens import clean
 import pytz
 from stats import stats
 
-#sheet = os.getenv("SECRET_LOCATION") + "sheetAuth.json"
-sheet =  "sheetAuth.json"
+sheet = os.getenv("SECRET_LOCATION") + "sheetAuth.json"
+#sheet =  "sheetAuth.json"
 
 app = FastAPI()
 
