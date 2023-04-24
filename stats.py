@@ -21,5 +21,16 @@ def stats(emails):
         else:
             dict[emails[i][3]] = (dict[emails[i][3]][0] + sent,dict[emails[i][3]][1] + opens,dict[emails[i][3]][2] +rep)
         i+=1
-    print(dict)
+    for keys in dict:
+        if 28+int(keys) >= len(emails[0]):
+            for i in range(len(emails)):
+                emails[i].append(None)
+            emails[1][28+int(keys)] = keys
+        if emails[1][28+int(keys)] == '':
+            emails[1][28+int(keys)] = keys
+        emails[2][28+int(keys)] = dict[keys][0]
+        emails[3][28+int(keys)] = dict[keys][1]
+        emails[4][28+int(keys)] = dict[keys][2]
+        emails[5][28+int(keys)] = str((dict[keys][1] * 100) / dict[keys][0]) + "%"
+        emails[6][28+int(keys)] = str((dict[keys][2] * 100) / dict[keys][0]) + "%"
     return emails
