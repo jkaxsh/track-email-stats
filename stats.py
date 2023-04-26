@@ -35,6 +35,6 @@ def stats(emails):
             emails[5][28+int(keys)] = "0%"
             emails[6][28+int(keys)] = "0%"
         else:
-            emails[5][28+int(keys)] = str((dict[keys][1] * 100) / dict[keys][0]).replace(".",",") + "%"
-            emails[6][28+int(keys)] = str((dict[keys][2] * 100) / dict[keys][0]).replace(".",",") + "%"
+            emails[5][28+int(keys)] = "{:.2%}".format((dict[keys][1] * 100) / dict[keys][0])
+            emails[6][28+int(keys)] = "{:.2%}".format((dict[keys][2] * 100) / dict[keys][0])
     return emails
